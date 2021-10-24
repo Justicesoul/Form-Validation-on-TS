@@ -1,21 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1>
-        Hello World
-    </h1>
-    <img src="/assets/images/cat.jpeg" alt="" width="300">
-
-
-    <script src="/scripts.js"></script>
-</body>
+  </head>
+  <body>
+    <main class="main">
+      <img
+        src="/assets/images/card.png"
+        class="submit-success-card disabled js-card"
+        alt="card"
+      />
+      <form novalidate class="main__form js-form">
+        <label class="form__text subheading"
+          >Username
+          <input
+            name="username"
+            type="text"
+            class="form__input"
+            placeholder="Enter username"
+          />
+        </label>
+        <span class="form__text-helper form__margin">
+          Your username must be in one word with capital letter and between 4
+          and 12 characters
+        </span>
+        <label class="form__text subheading"
+          >Password
+          <input
+            name="password"
+            type="password"
+            class="form__input"
+            placeholder="Password"
+            id="password"
+          />
+        </label>
+        <span class="form__text-helper form__margin">
+          Your password must be between 4 and 12 characters
+        </span>
+        <label class="form__text subheading"
+          >Confirm your password
+          <input
+            name="confirmation"
+            type="password"
+            class="form__input"
+            placeholder="Confirm password"
+          />
+        </label>
+        <span class="form__text-helper form__margin">
+          Confirm your password
+        </span>
+        <label class="form__text subheading"
+          >E-mail
+          <input
+            name="email"
+            type="email"
+            class="form__input"
+            placeholder="E-mail"
+          />
+        </label>
+        <span class="form__text-helper form__margin"> Enter valid e-mail </span>
+        <label class="checkbox form__margin">
+          <input type="checkbox" name="checkbox" class="checkbox__form" />
+          <span class="checkbox__form--checkmark"></span>Agree with coockies
+        </label>
+        <div class="form__radio">
+          <label class="radio form__margin">
+            <input class="radio__box" type="radio" name="radio" /><span
+              class="radio__box--checkmark"
+            ></span
+            >Select 1
+          </label>
+          <label class="radio form__margin">
+            <input class="radio__box" type="radio" name="radio" /><span
+              class="radio__box--checkmark"
+            ></span
+            >Select 2
+          </label>
+          <label class="radio form__margin">
+            <input class="radio__box" type="radio" name="radio" /><span
+              class="radio__box--checkmark"
+            ></span
+            >Select 3
+          </label>
+          <label class="radio form__margin">
+            <input class="radio__box" type="radio" name="radio" /><span
+              class="radio__box--checkmark"
+            ></span
+            >Select 4
+          </label>
+        </div>
+        <label class="dropdown form__margin">
+          <span class="dropdown__title subheading">Some kind of dropdown</span>
+          <div class="dropdown__menu form__text form__input js-dropdown-button">
+            - Select your option - <span class="dropdown__icon"></span>
+          </div>
+          <div class="dropdown__menu--items js-dropdown-menu disabled">
+            <div class="dropdown__item js-text">Option 1</div>
+            <div class="dropdown__item js-text">Option 2</div>
+            <div class="dropdown__item js-text">Option 3</div>
+          </div>
+        </label>
+        <button class="form__button js-button">Submit</button>
+      </form>
+      <script src="/scripts.js"></script>
+    </main>
+  </body>
 </html>
