@@ -52,8 +52,7 @@ const validationRules = {
     return true;
   },
   checkbox: (value: string) => {
-    console.log(123, value);
-    if (value === "0") {
+    if (value === "disabled") {
       return false;
     }
     return true;
@@ -83,14 +82,13 @@ form.addEventListener("submit", (e) => {
   if (!formData.get("checkbox")) {
     formData.append("checkbox", "disabled");
   }
-  console.log(formData);
+
   for (const pair of formData.entries()) {
     if (!isFormValid) {
       break;
     }
     const key = pair[0] as InputNames;
     const value = pair[1] as any;
-    console.log(pair);
     const validationFunction = validationRules[key];
 
     isFormValid = validationFunction(value);
