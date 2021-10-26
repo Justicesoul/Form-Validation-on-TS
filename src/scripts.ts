@@ -1,5 +1,7 @@
 const button = document.querySelector(".js-button");
-const dropDownButton = document.querySelector(".js-dropdown-button");
+const dropDownButton = document.querySelector(
+  ".js-dropdown-button"
+) as HTMLElement;
 const dropDownMenu = document.querySelector(".js-dropdown-menu");
 const form: HTMLFormElement = document.querySelector(".js-form");
 const selectedMenu = document.querySelectorAll(".js-text");
@@ -31,7 +33,6 @@ const validationRules = {
     } else if (value.length > maxCharacter) {
       return false;
     }
-
     return true;
   },
   confirmation: (value: string) => {
@@ -50,19 +51,10 @@ const validationRules = {
     }
     return true;
   },
-  checkbox: (value: any) => {
-    if (!checkbox.checked) {
+  checkbox: (value: string) => {
+    console.log(123, value);
+    if (value === "0") {
       return false;
-    }
-    return true;
-  },
-  radio: (value: any) => {
-    const radioSelected = form.querySelectorAll('input[name="radio"]');
-    for (const radioButton of radioSelected) {
-      // @ts-ignore
-      if (!radioButton.checked) {
-        return false;
-      }
     }
     return true;
   },
@@ -88,24 +80,37 @@ form.addEventListener("submit", (e) => {
   let isFormValid = true;
   const formData = new FormData(form);
 
+  if (!formData.get("checkbox")) {
+    formData.append("checkbox", "disabled");
+  }
+  console.log(formData);
   for (const pair of formData.entries()) {
     if (!isFormValid) {
       break;
     }
     const key = pair[0] as InputNames;
     const value = pair[1] as any;
-
-    // validācija
+    console.log(pair);
     const validationFunction = validationRules[key];
+
     isFormValid = validationFunction(value);
 
     const elementWithError = form.querySelector(".error__text");
     const borderWithError = form.querySelector(".error__border");
+    const dropDown = form.querySelector(".dropdown");
 
     if (elementWithError) {
       elementWithError.remove();
       borderWithError.classList.remove("error__border");
       errorIcon.classList.remove("error__icon");
+    }
+
+    if (isFormValid && dropDownButton.innerText === "- Select your option -") {
+      dropDownButton.classList.add("error__border");
+      dropDownButton.appendChild(errorIcon);
+      dropDown.appendChild(error);
+      error.innerText = `Please choose your option`;
+      error.classList.add("error__text");
     }
 
     if (!isFormValid) {
@@ -115,14 +120,14 @@ form.addEventListener("submit", (e) => {
       error.classList.add("error__text");
       input.classList.add("error__border");
       error.innerText = `Error in ${key} field`;
-      label.appendChild(error);
       label.appendChild(errorIcon);
-    } else {
-      // form.classList.add("disabled");
-      // successCard.classList.remove("disabled");
+      label.appendChild(error);
+    } else if (
+      isFormValid &&
+      dropDownButton.innerText !== "- Select your option -"
+    ) {
+      form.classList.add("disabled");
+      successCard.classList.remove("disabled");
     }
   }
 });
-//@ts-ignore
-
-console.log(checkbox);

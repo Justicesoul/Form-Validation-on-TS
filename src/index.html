@@ -18,7 +18,7 @@
         class="submit-success-card disabled js-card"
         alt="card"
       />
-      <form novalidate class="main__form js-form">
+      <form class="main__form js-form">
         <label class="form__text subheading"
           >Username
           <input
@@ -68,12 +68,17 @@
         </label>
         <span class="form__text-helper form__margin"> Enter valid e-mail </span>
         <label class="checkbox form__margin">
-          <input type="checkbox" name="checkbox" class="checkbox__form" />
+          <input
+            type="checkbox"
+            name="checkbox"
+            class="checkbox__form"
+            checked=""
+          />
           <span class="checkbox__form--checkmark"></span>Agree with coockies
         </label>
         <div class="form__radio">
           <label class="radio form__margin">
-            <input class="radio__box" type="radio" name="radio" /><span
+            <input class="radio__box" type="radio" name="radio" checked /><span
               class="radio__box--checkmark"
             ></span
             >Select 1
@@ -102,6 +107,7 @@
           <div class="dropdown__menu form__text form__input js-dropdown-button">
             - Select your option - <span class="dropdown__icon"></span>
           </div>
+
           <div class="dropdown__menu--items js-dropdown-menu disabled">
             <div class="dropdown__item js-text">Option 1</div>
             <div class="dropdown__item js-text">Option 2</div>

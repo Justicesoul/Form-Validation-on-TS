@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #7a5cfa;
+  background: linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%),
+    radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   color: #666666;
@@ -233,6 +234,16 @@ body {
   font-size: 12px;
   line-height: 18px;
   color: #eb5757;
+  font-weight: 700;
+}
+
+.js-error {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #eb5757;
+  font-weight: 700;
 }
 
 .error__icon {
@@ -246,13 +257,14 @@ body {
   background-size: cover;
 }
 
+.error__icon--dropdown-menu {
+  right: 42px;
+  top: 18px;
+}
+
 .error__border {
   border: 2px solid #eb5757;
   padding: 15px;
-}
-
-.valid-border {
-  border: 1px solid #cccccc;
 }
 
 @media (max-width: 990px) {
